@@ -1,6 +1,8 @@
 package com.movie;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Scanner;
 
 public class MovieApp {
@@ -47,7 +49,9 @@ public class MovieApp {
 		// populate ArrayList with 100 movies from MovieIO class
 		for (int i = 1; i <= 100; i++) {
 			movies.add(MovieIO.getMovie(i));
-			// FIXME some kind of alphabetization method here?
+			
+			// alphabetize ArrayList
+			Collections.sort(movies, Comparator.comparing(Movie::getTitle));
 		}
 		
 		return movies;
